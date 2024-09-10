@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css";
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -16,18 +16,232 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(10, 122, 178);
+}
+.main .image {
+  width: 60px;
+  border-radius: 50%;
+  margin-top: 50px;
+}
+.wrap-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: white;
+}
+.title {
+  margin: 10px 0;
+}
+.wrap-social {
+  display: flex;
+}
+.wrap-social .svg-inline--fa {
+  font-size: 25px;
+  width: 30px;
+  margin: 10px 10px;
+  color: white;
+}
+span.msg,
+span.choose {
+  color: #555;
+  padding: 5px 0 10px;
+  display: inherit;
+}
+.container {
+  max-width: 680px;
+  margin: 20px auto 5px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+/*Styling Selectbox*/
+
+.dropdown {
+  width: 100%;
+  display: inline-block;
+  background-color: #a6f4cb;
+  border-radius: 5px;
+  box-shadow: 0 0 2px rgb(204, 204, 204);
+  transition: all 0.5s ease;
+  position: relative; /* Đảm bảo dropdown có vị trí tương đối */
+  font-size: 14px;
+  color: #474747;
+  height: 100%;
+  text-align: left;
+  padding: 5px 0px 0px;
+}
+
+.dropdown .select {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+}
+
+.dropdown .select span {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.dropdown .select > i {
+  font-size: 20px;
+  color: #888;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  float: right;
+  line-height: 20px;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
+.dropdown:hover {
+  box-shadow: 0 0 4px rgb(204, 204, 204);
+}
+
+.dropdown:active {
+  background-color: #f8f8f8;
+}
+
+.dropdown.active:hover,
+.dropdown.active {
+  box-shadow: 0 0 4px rgb(204, 204, 204);
+  border-radius: 2px 2px 0 0;
+  background-color: #a6f4cb;
+}
+
+.dropdown.active .select > i {
+  transform: rotate(-90deg);
+}
+
+.dropdown .dropdown-menu {
+  position: relative; /* Đổi từ absolute sang relative */
+  background-color: #a6f4cb;
+  width: 100%;
+  margin-top: 1px;
+  box-shadow: 0 1px 2px rgb(204, 204, 204);
+  border-radius: 0 1px 2px 2px;
+  overflow: hidden;
+  overflow-y: auto;
+  z-index: 9;
+  font-size: 20px;
+}
+
+.dropdown .dropdown-menu li {
+  padding: 10px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  padding: 15px 10px;
+  border-bottom: 1px solid;
+  text-align: center;
+  background-color: #a6f4cb;
+}
+
+.dropdown .dropdown-menu {
+  padding: 0;
+  list-style: none;
+}
+
+.dropdown .dropdown-menu li:active {
+  background-color: #e2e2e2;
+}
+.image-container {
+  position: relative;
+  cursor: pointer;
+}
+.image-container:hover {
+  background-color: #000000;
+}
+.img-list {
+  height: auto;
+}
+.icon-link {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #fff;
+  box-shadow: #555;
+}
+.icon-many-image {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
 }
