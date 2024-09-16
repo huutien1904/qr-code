@@ -4,8 +4,14 @@ import Image from "next/image";
 import { faInstagram, faPinterest } from "@fortawesome/free-brands-svg-icons";
 import DropDown, { Product } from "@/components/ui/DropDown";
 import ImageDesign from "@/components/ui/ImageDesign";
+import ModaImage from "./ModaImage";
+import { useState } from "react";
+import { ImageModalType } from "./type";
 
 export default function Home() {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [imageSelected, setImageSelected] = useState<any>();
+
   const monitors: Product[] = [
     {
       title: "LG UltraFine UHD Monitor 32UN880P",
@@ -64,6 +70,45 @@ export default function Home() {
       linkAff: "link 1",
     },
   ];
+  const listImgAff = [
+    {
+      imgLink: "/image_1.webp",
+      imgCoverLink: "/cover_1.jpg",
+      listLinkAff: ["link1", "link2"],
+    },
+    {
+      imgLink: "/image_2.webp",
+      imgCoverLink: "/cover_2.jpg",
+      listLinkAff: ["link1", "link2"],
+    },
+    {
+      imgLink: "/image_3.webp",
+      imgCoverLink: "/cover_3.jpg",
+      listLinkAff: ["link1", "link2"],
+    },
+    {
+      imgLink: "/image_4.webp",
+      imgCoverLink: "/cover_4.jpg",
+      listLinkAff: ["link1", "link2"],
+    },
+    {
+      imgLink: "/image_5.webp",
+      imgCoverLink: "/cover_5.jpg",
+      listLinkAff: ["link1", "link2"],
+    },
+    {
+      imgLink: "/image_6.webp",
+      imgCoverLink: "/cover_6.jpg",
+      listLinkAff: ["link1", "link2"],
+    },
+  ];
+  const closeModal = () => {
+    setIsOpenModal(false);
+  };
+  const openModal = (imageCover: string, listLinkAff: string[]) => {
+    setIsOpenModal(true);
+    setImageSelected({ imageCover: imageCover, listLinkAff: listLinkAff });
+  };
   return (
     <div className="main">
       <Image
@@ -87,11 +132,20 @@ export default function Home() {
       <DropDown data={keyboards} title="TOP KEYBOARDS OF 2024" />
       <div className="max-w-[680px] w-full mt-4 px-2">
         <div className="grid grid-cols-3 gap-2">
-          <ImageDesign />
-          <ImageDesign />
-          <ImageDesign />
+          {listImgAff.map((item, index) => {
+            return (
+              <ImageDesign
+                image={item.imgLink}
+                imageCover={item.imgCoverLink}
+                listLinkAff={item.listLinkAff}
+                openModal={openModal}
+                key={index}
+              />
+            );
+          })}
         </div>
       </div>
+      <ModaImage isOpen={isOpenModal} closeModal={closeModal} imageSelected={imageSelected} />
     </div>
   );
 }
