@@ -11,17 +11,11 @@ export default function DropDown({ data, title }: DropDownType) {
 
   const [hiddenValue, setHiddenValue] = useState("");
 
-  const toggleDropdown = () => {
-    setIsActive(!isActive);
-  };
-  const handleRedirectAff = (link: string) => {
-    // return window.open(link);
-  };
   return (
     <div className="container">
       <div className={`dropdown ${isActive ? "active" : ""}`} tabIndex="1" onClick={() => setIsActive(!isActive)}>
-        <div className="select" onClick={toggleDropdown} style={{ borderBottom: isActive ? `1px solid` : "none" }}>
-          <span>{title}</span>
+        <div className="select" style={{ borderBottom: isActive ? `1px solid` : "none" }}>
+          <span className="text-sm sm:text-lg">{title}</span>
           <i className="fa">
             <FontAwesomeIcon icon={isActive ? faXmark : faCheck} />
           </i>
@@ -32,9 +26,12 @@ export default function DropDown({ data, title }: DropDownType) {
             return (
               <li
                 key={index}
-                onClick={() => {
+                onClick={(e) => {
+                  e.stopPropagation();
+
                   window.open(item.linkAff);
                 }}
+                className="text-sm sm:text-lg"
               >
                 {item.title}
               </li>

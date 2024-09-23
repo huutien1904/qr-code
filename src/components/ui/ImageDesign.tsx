@@ -3,11 +3,15 @@ import { faImages } from "@fortawesome/free-solid-svg-icons/faImages";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React from "react";
+export type linkAffType = {
+  title: string;
+  linkAff: string;
+};
 type ImageDesignType = {
   image: string;
   imageCover: string;
   listLinkAff: string[];
-  openModal(imageCover: string, listImgAff: string[]): void;
+  openModal(imageCover: string, listImgAff: any[]): void;
 };
 export default function ImageDesign({ image, imageCover, listLinkAff, openModal }: ImageDesignType) {
   return (

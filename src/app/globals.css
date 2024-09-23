@@ -156,8 +156,8 @@ span.choose {
 }
 
 .dropdown .select span {
-  font-size: 17px;
-  font-weight: 500;
+  /* font-size: 17px; */
+  /* font-weight: 500; */
 }
 
 .dropdown .select > i {
