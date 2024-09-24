@@ -13,15 +13,25 @@ export default function DropDown({ data, title }: DropDownType) {
 
   return (
     <div className="container">
-      <div className={`dropdown ${isActive ? "active" : ""}`} tabIndex="1" onClick={() => setIsActive(!isActive)}>
-        <div className="select" style={{ borderBottom: isActive ? `1px solid` : "none" }}>
+      <div
+        className={`dropdown ${isActive ? "active" : ""}`}
+        tabIndex={1}
+        onClick={() => setIsActive(!isActive)}
+      >
+        <div
+          className="select"
+          style={{ borderBottom: isActive ? `1px solid` : "none" }}
+        >
           <span className="text-sm sm:text-lg">{title}</span>
           <i className="fa">
             <FontAwesomeIcon icon={isActive ? faXmark : faCheck} />
           </i>
         </div>
         <input type="hidden" name="gender" value={hiddenValue} />
-        <ul className="dropdown-menu" style={{ display: isActive ? "block" : "none" }}>
+        <ul
+          className="dropdown-menu"
+          style={{ display: isActive ? "block" : "none" }}
+        >
           {data?.map((item: Product, index: number) => {
             return (
               <li
