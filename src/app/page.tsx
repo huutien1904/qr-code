@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import { faInstagram, faPinterest } from "@fortawesome/free-brands-svg-icons";
 import DropDown, { Product } from "@/components/ui/DropDown";
-import ImageDesign, { linkAff } from "@/components/ui/ImageDesign";
+import ImageDesign from "@/components/ui/ImageDesign";
 import ModaImage from "./ModaImage";
 import { useState } from "react";
 import { ImageModalType } from "./type";
@@ -710,7 +710,7 @@ export default function Home() {
   const closeModal = () => {
     setIsOpenModal(false);
   };
-  const openModal = (imageCover: string, listLinkAff: linkAff[]) => {
+  const openModal = (imageCover: string, listLinkAff: any[]) => {
     setIsOpenModal(true);
     setImageSelected({ imageCover: imageCover, listLinkAff: listLinkAff });
   };
