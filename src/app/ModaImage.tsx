@@ -15,7 +15,7 @@ export default function ModaImage({
 }: ModaImageType) {
   return (
     <Dialog open={isOpen} onOpenChange={closeModal}>
-      <DialogContent className="p-0 min-h-[450px] w-full max-w-[870px] bg-custom-bg border-transparent">
+      <DialogContent className="p-0 min-h-[450px] w-full max-w-[870px] bg-custom-bg border-transparent overflow-y-auto max-h-screen">
         <div className="grid grid-cols-1 md:grid-cols-12 rounded-tl-lg rounded-bl-lg">
           <div className="flex justify-center items-center bg-custom-bg p-0 m-0 border-0 h-full md:col-span-7">
             <Image
@@ -43,8 +43,8 @@ export default function ModaImage({
                     rel="noopener noreferrer" // Bảo mật tốt hơn khi mở tab mới
                     className="flex p-2.5 px-3 border-t border-gray-400 items-center justify-between text-[14px] cursor-pointer"
                   >
-                    <p className="text-xs flex px-2.5 py-1 bg-black text-white rounded-full mr-4">
-                      1
+                    <p className="text-[10px] flex items-center justify-center w-6 h-6 bg-black text-white rounded-full mr-4">
+                      {index + 1}
                     </p>
                     <p className="w-[70%] truncate text-xs">{item.title}</p>
                     <Button variant="outline" className="ml-3" size={"sm"}>

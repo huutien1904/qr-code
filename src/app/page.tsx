@@ -718,14 +718,14 @@ export default function Home() {
     <div className="main">
       <Image
         className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert image"
-        src="/logo.png"
+        src="/logo.jpg"
         alt="Next.js Logo"
-        width={280}
+        width={380}
         height={37}
         priority
       />
       <div className="wrap-title">
-        <span className="title">itsworkflow</span>
+        <span className="title">DecorHomeVibe</span>
         <p>(Our website may contain affiliate links)</p>
       </div>
       <div className="wrap-social">
